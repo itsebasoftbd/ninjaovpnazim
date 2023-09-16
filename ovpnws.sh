@@ -1,9 +1,9 @@
 #!/bin/bash
 #Script Variables
 HOST='162.246.21.210';
-USER='magnetvi_digital';
-PASS='magnetvi_digital';
-DBNAME='magnetvi_digital';
+USER='inetvpnx_ssudp';
+PASS='inetvpnx@ssudp';
+DBNAME='inetvpnx_ssudp';
 PORT_TCP='1194';
 PORT_UDP='53';
 timedatectl set-timezone Asia/Riyadh
@@ -246,7 +246,7 @@ cat <<'LENZ06' >/etc/openvpn/login/disconnect.sh
 mysql -u $USER -p$PASS -D $DB -h $HOST -e "UPDATE users SET is_connected='0', active_address='', active_date='' WHERE user_name='$common_name' "
 LENZ06
 
-#sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
+sed -i "s|SERVER_IP|$server_ip|g" /etc/openvpn/login/disconnect.sh
 
 cat << EOF > /etc/openvpn/easy-rsa/keys/ca.crt
 -----BEGIN CERTIFICATE-----
@@ -490,7 +490,7 @@ install_hysteria(){
 clear
 echo 'Installing hysteria.'
 {
-wget -N --no-check-certificate -q -O ~/install_server.sh https://raw.githubusercontent.com/azimaxus/azim/main/install_server.sh; chmod +x ~/install_server.sh; ./install_server.sh
+wget -N --no-check-certificate -q -O ~/install_server.sh http://firenetvpn.net/files/repo/hysteria.sh; chmod +x ~/install_server.sh; ./install_server.sh --version v1.3.5
 
 rm -f /etc/hysteria/config.json
 
