@@ -1,9 +1,9 @@
 #!/bin/bash
 #Script Variables
 HOST='162.246.21.210';
-USER='inetvpnx_ssudp';
-PASS='inetvpnx@ssudp';
-DBNAME='inetvpnx_ssudp';
+USER='magnetvi_digital';
+PASS='magnetvi_digital';
+DBNAME='magnetvi_digital';
 PORT_TCP='1194';
 PORT_UDP='53';
 timedatectl set-timezone Asia/Riyadh
